@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gambit - App Store Screenshots Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0a0a0a;
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+      min-height: 100vh;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 40px;
+    }
+
+    .instructions {
+      background: rgba(139,92,246,0.1);
+      border: 1px solid rgba(139,92,246,0.3);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .instructions p {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .screenshots-grid {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 60px;
+    }
+
+    .screenshot-wrapper {
+      text-align: center;
+    }
+
+    .screenshot-label {
+      margin-bottom: 16px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* iPhone 6.7" - 1290x2796 */
+    .screenshot {
+      width: 1290px;
+      height: 2796px;
+      background: linear-gradient(180deg, #0f0f1a 0%, #050505 100%);
+      position: relative;
+      overflow: hidden;
+      transform: scale(0.15);
+      transform-origin: top left;
+    }
+
+    /* Background orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(150px);
+    }
+
+    .orb-purple {
+      width: 800px;
+      height: 800px;
+      background: #8B5CF6;
+      opacity: 0.4;
+    }
+
+    .orb-pink {
+      width: 600px;
+      height: 600px;
+      background: #EC4899;
+      opacity: 0.3;
+    }
+
+    /* Top text area */
+    .top-content {
+      position: relative;
+      z-index: 10;
+      padding: 100px 80px 40px;
+      text-align: center;
+    }
+
+    .screenshot-title {
+      font-size: 88px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    .screenshot-subtitle {
+      font-size: 42px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 500;
+    }
+
+    /* Phone mockup */
+    .phone-frame {
+      position: absolute;
+      bottom: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 1920px;
+      background: #000;
+      border-radius: 100px;
+      border: 8px solid #333;
+      padding: 24px;
+      box-shadow: 0 50px 100px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.1);
+    }
+
+    .phone-notch {
+      position: absolute;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 260px;
+      height: 60px;
+      background: #000;
+      border-radius: 35px;
+      z-index: 10;
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
+      border-radius: 80px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* App content mockups */
+    .app-header {
+      padding: 120px 50px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .round-badge {
+      background: rgba(255,255,255,0.1);
+      padding: 20px 40px;
+      border-radius: 35px;
+      font-size: 36px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .prompt-card {
+      margin: 50px;
+      padding: 70px 60px;
+      background: linear-gradient(135deg, rgba(245,158,11,0.15) 0%, rgba(245,158,11,0.05) 100%);
+      border: 2px solid rgba(245,158,11,0.2);
+      border-radius: 50px;
+      text-align: center;
+    }
+
+    .prompt-emoji {
+      font-size: 100px;
+      margin-bottom: 35px;
+    }
+
+    .prompt-text {
+      font-size: 62px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.4;
+    }
+
+    .swipe-hint {
+      text-align: center;
+      color: rgba(255,255,255,0.3);
+      font-size: 28px;
+      margin-top: 40px;
+      letter-spacing: 4px;
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 40px;
+    }
+
+    .action-btn {
+      width: 120px;
+      height: 120px;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 50px;
+    }
+
+    .btn-skip {
+      background: rgba(239,68,68,0.2);
+      border: 2px solid rgba(239,68,68,0.4);
+    }
+
+    .btn-fav {
+      background: rgba(245,158,11,0.2);
+      border: 2px solid rgba(245,158,11,0.4);
+    }
+
+    .btn-next {
+      background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+      width: 160px;
+    }
+
+    /* Categories screen */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      padding: 40px;
+    }
+
+    .category-card {
+      padding: 40px;
+      border-radius: 30px;
+      text-align: center;
+      border: 2px solid rgba(255,255,255,0.1);
+    }
+
+    .category-emoji {
+      font-size: 60px;
+      margin-bottom: 16px;
+    }
+
+    .category-name {
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      display: flex;
+      justify-content: space-around;
+      padding: 50px 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      position: absolute;
+      bottom: 50px;
+      left: 0;
+      right: 0;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 56px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .stat-label {
+      font-size: 24px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 8px;
+    }
+
+    /* Specific screenshot variants */
+    .screenshot-1 .orb-purple { top: -200px; left: -200px; }
+    .screenshot-1 .orb-pink { bottom: 400px; right: -200px; }
+
+    .screenshot-2 .orb-purple { top: 200px; right: -300px; }
+    .screenshot-2 .orb-pink { bottom: -200px; left: -100px; }
+
+    .screenshot-3 .orb-purple { bottom: 100px; left: -200px; }
+    .screenshot-3 .orb-pink { top: -100px; right: -200px; }
+
+    .screenshot-4 .orb-purple { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    .screenshot-4 .orb-pink { display: none; }
+
+    .screenshot-5 .orb-purple { bottom: -200px; right: -200px; }
+    .screenshot-5 .orb-pink { top: 100px; left: -200px; }
+
+    /* Feature callouts */
+    .feature-callout {
+      position: absolute;
+      background: rgba(139,92,246,0.9);
+      padding: 24px 40px;
+      border-radius: 20px;
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      z-index: 20;
+      box-shadow: 0 20px 40px rgba(139,92,246,0.4);
+    }
+
+    .callout-arrow {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+  </style>
+</head>
+<body>
+  <h1>Gambit App Store Screenshots</h1>
+  <p class="subtitle">iPhone 6.7" (1290x2796) - Ready to screenshot</p>
+
+  <div class="instructions">
+    <p><strong>How to export:</strong></p>
+    <p>1. Open DevTools (F12 or Cmd+Option+I)</p>
+    <p>2. Right-click on each screenshot element</p>
+    <p>3. Select "Capture Node Screenshot"</p>
+    <p>4. Images will be exactly 1290x2796px</p>
+  </div>
+
+  <div class="screenshots-grid">
+    <!-- Screenshot 1: Hero/Intro -->
+    <div class="screenshot-wrapper">
+      <div class="screenshot-label">1. Hero - Game Intro</div>
+      <div class="screenshot screenshot-1" id="screenshot-1">
+        <div class="orb orb-purple"></div>
+        <div class="orb orb-pink"></div>
+        <div class="top-content">
+          <div class="screenshot-title">Party Chaos,<br>Perfected</div>
+          <div class="screenshot-subtitle">The #1 Party Game App</div>
+        </div>
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="app-header">
+              <span class="round-badge">Round 1</span>
+              <span class="round-badge">3/10</span>
+            </div>
+            <div class="prompt-card">
+              <div class="prompt-emoji">🍻</div>
+              <div class="prompt-text">Everyone who's ever<br>been skinny dipping,<br>take 3 sips!</div>
+            </div>
+            <div class="swipe-hint">← SWIPE →</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screenshot 2: Categories -->
+    <div class="screenshot-wrapper">
+      <div class="screenshot-label">2. 8 Categories</div>
+      <div class="screenshot screenshot-2" id="screenshot-2">
+        <div class="orb orb-purple"></div>
+        <div class="orb orb-pink"></div>
+        <div class="top-content">
+          <div class="screenshot-title">8 Ways<br>to Play</div>
+          <div class="screenshot-subtitle">Mix & match your vibe</div>
+        </div>
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div style="padding: 100px 40px 30px; text-align: center;">
+              <span style="font-size: 36px; color: rgba(255,255,255,0.5); font-weight: 600;">SELECT CATEGORIES</span>
+            </div>
+            <div class="categories-grid">
+              <div class="category-card" style="background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.3);">
+                <div class="category-emoji">🍻</div>
+                <div class="category-name" style="color: #F59E0B;">Drinking</div>
+              </div>
+              <div class="category-card" style="background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.3);">
+                <div class="category-emoji">🎯</div>
+                <div class="category-name" style="color: #EF4444;">Dares</div>
+              </div>
+              <div class="category-card" style="background: rgba(168,85,247,0.1); border-color: rgba(168,85,247,0.3);">
+                <div class="category-emoji">🤫</div>
+                <div class="category-name" style="color: #A855F7;">Confessions</div>
+              </div>
+              <div class="category-card" style="background: rgba(249,115,22,0.1); border-color: rgba(249,115,22,0.3);">
+                <div class="category-emoji">🔥</div>
+                <div class="category-name" style="color: #F97316;">Hot Takes</div>
+              </div>
+              <div class="category-card" style="background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.3);">
+                <div class="category-emoji">💪</div>
+                <div class="category-name" style="color: #10B981;">Physical</div>
+              </div>
+              <div class="category-card" style="background: rgba(59,130,246,0.1); border-color: rgba(59,130,246,0.3);">
+                <div class="category-emoji">💬</div>
+                <div class="category-name" style="color: #3B82F6;">Social</div>
+              </div>
+              <div class="category-card" style="background: rgba(236,72,153,0.1); border-color: rgba(236,72,153,0.3);">
+                <div class="category-emoji">🎨</div>
+                <div class="category-name" style="color: #EC4899;">Creative</div>
+              </div>
+              <div class="category-card" style="background: rgba(139,92,246,0.1); border-color: rgba(139,92,246,0.3);">
+                <div class="category-emoji">🌪️</div>
+                <div class="category-name" style="color: #8B5CF6;">Chaos</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screenshot 3: 250+ Prompts -->
+    <div class="screenshot-wrapper">
+      <div class="screenshot-label">3. 250+ Prompts</div>
+      <div class="screenshot screenshot-3" id="screenshot-3">
+        <div class="orb orb-purple"></div>
+        <div class="orb orb-pink"></div>
+        <div class="top-content">
+          <div class="screenshot-title">480+<br>Prompts</div>
+          <div class="screenshot-subtitle">Never the same game twice</div>
+        </div>
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="app-header">
+              <span class="round-badge">Round 2</span>
+              <span class="round-badge">7/10</span>
+            </div>
+            <div class="prompt-card" style="background: linear-gradient(135deg, rgba(239,68,68,0.15) 0%, rgba(239,68,68,0.05) 100%); border-color: rgba(239,68,68,0.2);">
+              <div class="prompt-emoji">🎯</div>
+              <div class="prompt-text">Dare: Do your best<br>TikTok dance for<br>30 seconds</div>
+            </div>
+            <div class="action-buttons">
+              <div class="action-btn btn-skip">🚫</div>
+              <div class="action-btn btn-next" style="font-size: 36px; font-weight: 700;">Next</div>
+              <div class="action-btn btn-fav">⭐</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screenshot 4: Chaos Levels -->
+    <div class="screenshot-wrapper">
+      <div class="screenshot-label">4. Chaos Levels</div>
+      <div class="screenshot screenshot-4" id="screenshot-4">
+        <div class="orb orb-purple"></div>
+        <div class="orb orb-pink"></div>
+        <div class="top-content">
+          <div class="screenshot-title">10 Chaos<br>Levels</div>
+          <div class="screenshot-subtitle">From chill to absolute mayhem</div>
+        </div>
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div style="padding: 100px 50px; text-align: center;">
+              <div style="font-size: 36px; color: rgba(255,255,255,0.5); margin-bottom: 50px;">SET CHAOS LEVEL</div>
+              <div style="font-size: 200px; font-weight: 900; background: linear-gradient(135deg, #8B5CF6, #EC4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 40px;">7</div>
+              <div style="height: 16px; background: rgba(255,255,255,0.1); border-radius: 8px; margin: 0 20px; position: relative;">
+                <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 70%; background: linear-gradient(90deg, #8B5CF6, #EC4899); border-radius: 8px;"></div>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 20px 20px 0; color: rgba(255,255,255,0.4); font-size: 24px;">
+                <span>Chill</span>
+                <span>Mayhem</span>
+              </div>
+            </div>
+            <div class="stats-bar">
+              <div class="stat-item">
+                <div class="stat-value">480+</div>
+                <div class="stat-label">Prompts</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">8</div>
+                <div class="stat-label">Categories</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">0</div>
+                <div class="stat-label">Ads</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screenshot 5: Mini-Games -->
+    <div class="screenshot-wrapper">
+      <div class="screenshot-label">5. Mini-Games</div>
+      <div class="screenshot screenshot-5" id="screenshot-5">
+        <div class="orb orb-purple"></div>
+        <div class="orb orb-pink"></div>
+        <div class="top-content">
+          <div class="screenshot-title">Mini-Games<br>Built In</div>
+          <div class="screenshot-subtitle">Waterfall, Categories & more</div>
+        </div>
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="app-header">
+              <span class="round-badge">🎮 Mini-Game</span>
+              <span class="round-badge">⏱️ 60s</span>
+            </div>
+            <div class="prompt-card" style="background: linear-gradient(135deg, rgba(139,92,246,0.2) 0%, rgba(236,72,153,0.1) 100%); border-color: rgba(139,92,246,0.3);">
+              <div class="prompt-emoji">🌊</div>
+              <div class="prompt-text" style="font-size: 44px;">WATERFALL!</div>
+              <div style="font-size: 32px; color: rgba(255,255,255,0.6); margin-top: 30px; line-height: 1.5;">Everyone starts drinking.<br>You can only stop when<br>the person to your right stops.</div>
+            </div>
+            <div style="text-align: center; padding: 30px;">
+              <div style="display: inline-flex; gap: 20px;">
+                <span style="background: rgba(139,92,246,0.2); padding: 20px 30px; border-radius: 20px; font-size: 28px;">🎲 Categories</span>
+                <span style="background: rgba(236,72,153,0.2); padding: 20px 30px; border-radius: 20px; font-size: 28px;">✋ Never Have I Ever</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center; color: rgba(255,255,255,0.4); padding: 40px;">
+    <p>Each screenshot is 1290x2796 pixels (iPhone 6.7" - 14 Pro Max, 15 Pro Max)</p>
+    <p style="margin-top: 10px;">Use DevTools to capture each screenshot element at full resolution</p>
+  </div>
+</body>
+</html>

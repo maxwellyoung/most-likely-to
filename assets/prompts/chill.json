@@ -1,0 +1,19 @@
+{
+  "playerSpecific": [
+    {
+      "text": "{player1}, share a story about a time you helped someone in need.",
+      "type": "single-player",
+      "category": "social"
+    },
+    {
+      "text": "{player1} and {player2}, share your favorite childhood memories.",
+      "type": "call-response",
+      "category": "social"
+    },
+    {
+      "text": "If {player1} can make {player2} laugh in the next 30 seconds, they win!",
+      "type": "conditional",
+      "category": "action"
+    }
+  ]
+}

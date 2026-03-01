@@ -1,0 +1,18 @@
+{
+  "configVersion": 0,
+  "apple": {
+    "info": {
+      "en-US": {
+        "title": "Gambit - Party Game",
+        "subtitle": "Prompts, Dares & Chaos",
+        "description": "Turn any gathering into an unforgettable night. Gambit generates personalized prompts using your friends' names across 8 categories — from icebreakers to pure chaos.\n\nFEATURES\n\n• Multiple game modes: Classic, Hot Seat, Couples, Truth or Dare\n• 8 categories: Forfeits, Dares, Confessions, Hot Takes, Physical, Social, Creative, and Pure Chaos\n• Adjustable chaos level — dial it up or keep it chill\n• Player name substitution makes every prompt personal\n• Score tracking and drink counter\n• Save favorites and create your own custom prompts\n• 480+ prompts included free\n\nGAMBIT PRO\n\nUnlock 225+ premium prompts:\n• 100+ exclusive party prompts\n• 75+ extreme chaos challenges\n• 50+ adult-only prompts (21+)\n\nDesigned for adults 18+. No accounts, no ads. Your game, your rules.",
+        "keywords": ["party game", "drinking game", "dares", "group games", "game night", "truth or dare", "social", "party app"],
+        "privacyPolicyUrl": "https://ninetynine.digital/gambit/privacy",
+        "supportUrl": "https://ninetynine.digital/contact",
+        "marketingUrl": "https://ninetynine.digital"
+      }
+    },
+    "categories": ["GAMES", "ENTERTAINMENT"],
+    "copyright": "2026 Maxwell Young"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "playerSpecific": [
+    {
+      "text": "{player1}, share your most romantic date story.",
+      "type": "single-player",
+      "category": "social"
+    },
+    {
+      "text": "{player1} and {player2}, act out a romantic movie scene.",
+      "type": "call-response",
+      "category": "action"
+    },
+    {
+      "text": "If {player1} can guess {player2}'s ideal date night, they win!",
+      "type": "conditional",
+      "category": "social"
+    }
+  ]
+}

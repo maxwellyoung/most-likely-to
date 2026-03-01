@@ -1,0 +1,19 @@
+{
+  "playerSpecific": [
+    {
+      "text": "{player1}, take a penalty if you've ever ghosted someone!",
+      "type": "single-player",
+      "category": "drinking"
+    },
+    {
+      "text": "{player1} and {player2}, share your most embarrassing party moment.",
+      "type": "call-response",
+      "category": "social"
+    },
+    {
+      "text": "If {player1} doesn't clap when {player2} finishes their sentence, {player1} takes a forfeit",
+      "type": "conditional",
+      "category": "drinking"
+    }
+  ]
+}

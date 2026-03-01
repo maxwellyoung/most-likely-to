@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "Most Likely To",
+    "slug": "most-likely-to",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "newArchEnabled": true,
+    "icon": "./assets/images/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#050505"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.ninetynine.mostlikelyto",
+      "buildNumber": "2"
+    },
+    "scheme": "socialchaos",
+    "android": {
+      "package": "com.ninetynine.mostlikelyto",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icon.png",
+        "backgroundColor": "#2D1B4E"
+      }
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-web-browser"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "12cac593-c00c-46f3-80f4-28dbab5d1dca"
+      }
+    },
+    "assetBundlePatterns": [
+      "**/*",
+      "assets/images/*",
+      "assets/fonts/*"
+    ],
+    "owner": "maxwellyoung"
+  }
+}

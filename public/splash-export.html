@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gambit Splash Screen Export</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #fff;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .instructions {
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 40px;
+      text-align: center;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+
+    .size-selector {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .size-btn {
+      padding: 12px 24px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .size-btn:hover {
+      background: rgba(139, 92, 246, 0.3);
+      border-color: #8B5CF6;
+    }
+
+    .size-btn.active {
+      background: #8B5CF6;
+      border-color: #8B5CF6;
+    }
+
+    /* Splash container - default iPhone size */
+    #splash-screen {
+      width: 1284px;
+      height: 2778px;
+      background: #050505;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transform: scale(0.25);
+      transform-origin: top center;
+    }
+
+    /* Gradient orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(150px);
+      opacity: 0.5;
+    }
+
+    .orb-1 {
+      width: 800px;
+      height: 800px;
+      background: #8B5CF6;
+      top: 15%;
+      left: -20%;
+    }
+
+    .orb-2 {
+      width: 600px;
+      height: 600px;
+      background: #EC4899;
+      bottom: 20%;
+      right: -15%;
+    }
+
+    .orb-3 {
+      width: 400px;
+      height: 400px;
+      background: #3B82F6;
+      bottom: 10%;
+      left: 30%;
+      opacity: 0.3;
+    }
+
+    /* Logo container */
+    .logo-container {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    /* Main wordmark */
+    .wordmark {
+      font-size: 180px;
+      font-weight: 900;
+      letter-spacing: 16px;
+      color: white;
+      text-shadow: 0 0 120px rgba(139, 92, 246, 0.8);
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Tagline */
+    .tagline {
+      font-size: 36px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 8px;
+      text-transform: uppercase;
+    }
+
+    /* Loading indicator */
+    .loader {
+      position: absolute;
+      bottom: 200px;
+      width: 60px;
+      height: 60px;
+      border: 4px solid rgba(139, 92, 246, 0.2);
+      border-top-color: #8B5CF6;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .download-note {
+      margin-top: 40px;
+      color: rgba(255,255,255,0.5);
+      font-size: 14px;
+    }
+
+    /* Different sizes */
+    .splash-wrapper {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .size-label {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.4);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Gambit Splash Screen</h1>
+  <p class="instructions">
+    This splash screen matches Gambit branding. Use DevTools to capture the element at full resolution:<br>
+    <strong>Right-click #splash-screen > "Capture Node Screenshot"</strong>
+  </p>
+
+  <div class="size-selector">
+    <button class="size-btn active" onclick="setSize('iphone')">iPhone (1284x2778)</button>
+    <button class="size-btn" onclick="setSize('android')">Android (1080x1920)</button>
+    <button class="size-btn" onclick="setSize('tablet')">Tablet (2048x2732)</button>
+  </div>
+
+  <div class="splash-wrapper">
+    <div id="splash-screen">
+      <!-- Gradient orbs -->
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+
+      <div class="logo-container">
+        <div class="wordmark">GAMBIT</div>
+        <div class="tagline">Party Chaos, Perfected</div>
+      </div>
+
+      <div class="loader"></div>
+    </div>
+    <div class="size-label" id="size-label">1284 x 2778 (iPhone 14 Pro Max)</div>
+  </div>
+
+  <p class="download-note">Export at 72 DPI for Expo splash screen</p>
+
+  <script>
+    const sizes = {
+      iphone: { width: 1284, height: 2778, scale: 0.25, label: '1284 x 2778 (iPhone 14 Pro Max)' },
+      android: { width: 1080, height: 1920, scale: 0.35, label: '1080 x 1920 (Android)' },
+      tablet: { width: 2048, height: 2732, scale: 0.2, label: '2048 x 2732 (iPad Pro)' }
+    };
+
+    function setSize(sizeKey) {
+      const splash = document.getElementById('splash-screen');
+      const label = document.getElementById('size-label');
+      const buttons = document.querySelectorAll('.size-btn');
+      const size = sizes[sizeKey];
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      splash.style.width = size.width + 'px';
+      splash.style.height = size.height + 'px';
+      splash.style.transform = `scale(${size.scale})`;
+      label.textContent = size.label;
+    }
+  </script>
+</body>
+</html>

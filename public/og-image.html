@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Gambit OG Image - 1200x630</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    .og-container {
+      width: 1200px;
+      height: 630px;
+      background: #050505;
+      position: relative;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Animated gradient blobs */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.7;
+    }
+
+    .blob-1 {
+      width: 600px;
+      height: 600px;
+      background: #8B5CF6;
+      top: -150px;
+      left: -150px;
+    }
+
+    .blob-2 {
+      width: 500px;
+      height: 500px;
+      background: #EC4899;
+      top: 50px;
+      right: -100px;
+    }
+
+    .blob-3 {
+      width: 400px;
+      height: 400px;
+      background: #3B82F6;
+      bottom: -150px;
+      left: 30%;
+    }
+
+    .blob-4 {
+      width: 300px;
+      height: 300px;
+      background: #10B981;
+      bottom: 100px;
+      right: 25%;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+    }
+
+    .content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 60px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, rgba(139,92,246,0.25), rgba(236,72,153,0.25));
+      border: 1px solid rgba(139,92,246,0.4);
+      padding: 14px 28px;
+      border-radius: 50px;
+      margin-bottom: 28px;
+      backdrop-filter: blur(10px);
+    }
+
+    .badge-dot {
+      width: 10px;
+      height: 10px;
+      background: #10B981;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #10B981;
+    }
+
+    .badge-text {
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .title {
+      font-size: 140px;
+      font-weight: 900;
+      color: white;
+      letter-spacing: 10px;
+      margin-bottom: 16px;
+      text-shadow: 0 4px 60px rgba(139,92,246,0.6);
+    }
+
+    .subtitle {
+      font-size: 32px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 40px;
+      letter-spacing: 1px;
+    }
+
+    .stats {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 56px;
+      font-weight: 800;
+      color: white;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 16px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 8px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .stat-divider {
+      width: 2px;
+      height: 70px;
+      background: linear-gradient(180deg, transparent, rgba(255,255,255,0.3), transparent);
+    }
+
+    .categories {
+      display: flex;
+      gap: 12px;
+      margin-top: 36px;
+    }
+
+    .category {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.08);
+      padding: 12px 20px;
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .category-emoji {
+      font-size: 22px;
+    }
+
+    .category-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .corner-badge {
+      position: absolute;
+      bottom: 30px;
+      right: 40px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.4);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .corner-badge::before {
+      content: '📱';
+    }
+  </style>
+</head>
+<body>
+  <div class="og-container">
+    <!-- Gradient blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+
+    <div class="overlay"></div>
+
+    <div class="content">
+      <div class="badge">
+        <div class="badge-dot"></div>
+        <span class="badge-text">The #1 Party Game App</span>
+      </div>
+
+      <h1 class="title">GAMBIT</h1>
+      <p class="subtitle">Party Chaos, Perfected</p>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-number">480+</div>
+          <div class="stat-label">Prompts</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <div class="stat-number">8</div>
+          <div class="stat-label">Categories</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <div class="stat-number">10</div>
+          <div class="stat-label">Chaos Levels</div>
+        </div>
+      </div>
+
+      <div class="categories">
+        <div class="category">
+          <span class="category-emoji">🍻</span>
+          <span class="category-name">Drinking</span>
+        </div>
+        <div class="category">
+          <span class="category-emoji">🎯</span>
+          <span class="category-name">Dares</span>
+        </div>
+        <div class="category">
+          <span class="category-emoji">🤫</span>
+          <span class="category-name">Confessions</span>
+        </div>
+        <div class="category">
+          <span class="category-emoji">🔥</span>
+          <span class="category-name">Hot Takes</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="corner-badge">Free on iOS & Android</div>
+  </div>
+
+  <p style="margin-top: 20px; color: #666; font-family: sans-serif; text-align: center;">
+    Screenshot this at 1200x630px for the OG image
+  </p>
+</body>
+</html>

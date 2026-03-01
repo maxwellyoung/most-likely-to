@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gambit Brand Assets</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      min-height: 100vh;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #8B5CF6, #EC4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 60px;
+      font-size: 18px;
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: 0 auto 80px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* App Icon Designs */
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .icon-container {
+      text-align: center;
+    }
+
+    .icon-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 16px;
+      font-weight: 600;
+    }
+
+    /* App Icon - 1024x1024 for App Store */
+    .app-icon {
+      width: 256px;
+      height: 256px;
+      border-radius: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .icon-v1 {
+      background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+      border: 3px solid rgba(139, 92, 246, 0.3);
+      box-shadow:
+        0 20px 60px rgba(139, 92, 246, 0.3),
+        inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+
+    .icon-v1::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.4) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 70%, rgba(236, 72, 153, 0.3) 0%, transparent 50%);
+    }
+
+    .icon-letter {
+      font-size: 140px;
+      font-weight: 900;
+      background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0.8) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 4px 30px rgba(139, 92, 246, 0.5);
+      filter: drop-shadow(0 2px 10px rgba(0,0,0,0.5));
+    }
+
+    /* Version 2 - Gradient Background */
+    .icon-v2 {
+      background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%);
+      box-shadow: 0 20px 60px rgba(139, 92, 246, 0.4);
+    }
+
+    .icon-v2::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.3) 0%, transparent 40%);
+    }
+
+    .icon-v2 .icon-letter {
+      color: #fff;
+      -webkit-text-fill-color: #fff;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Version 3 - With Dice Element */
+    .icon-v3 {
+      background: linear-gradient(145deg, #1a1a2e 0%, #0a0a14 100%);
+      border: 2px solid rgba(139, 92, 246, 0.4);
+      box-shadow: 0 20px 60px rgba(139, 92, 246, 0.25);
+    }
+
+    .icon-v3::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 80%, rgba(236, 72, 153, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.4) 0%, transparent 40%);
+    }
+
+    .icon-v3 .icon-letter {
+      font-size: 120px;
+    }
+
+    .dice-element {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 10px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      padding: 8px;
+      gap: 4px;
+      transform: rotate(15deg);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .dice-dot {
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      border-radius: 50%;
+    }
+
+    .dice-element .dice-dot:nth-child(1) { grid-area: 1/1; }
+    .dice-element .dice-dot:nth-child(2) { grid-area: 2/2; }
+    .dice-element .dice-dot:nth-child(3) { grid-area: 3/3; }
+    .dice-element .dice-dot:nth-child(4) { grid-area: 1/3; }
+    .dice-element .dice-dot:nth-child(5) { grid-area: 3/1; }
+
+    /* Version 4 - Premium Glass */
+    .icon-v4 {
+      background: linear-gradient(145deg, #18182f 0%, #0d0d1a 100%);
+      border: 1px solid rgba(139, 92, 246, 0.5);
+      box-shadow:
+        0 30px 80px rgba(139, 92, 246, 0.3),
+        inset 0 1px 0 rgba(255,255,255,0.1),
+        inset 0 -20px 40px rgba(139, 92, 246, 0.1);
+    }
+
+    .icon-v4::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 100%);
+      border-radius: 56px 56px 0 0;
+    }
+
+    .icon-v4 .icon-letter {
+      background: linear-gradient(180deg, #fff 0%, #c4b5fd 100%);
+      -webkit-background-clip: text;
+    }
+
+    /* Color Palette */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .color-card {
+      background: rgba(255,255,255,0.03);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .color-swatch {
+      height: 100px;
+    }
+
+    .color-info {
+      padding: 16px;
+    }
+
+    .color-name {
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .color-hex {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      font-family: 'SF Mono', Monaco, monospace;
+    }
+
+    /* Typography */
+    .type-sample {
+      background: rgba(255,255,255,0.03);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .type-weight {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 8px;
+    }
+
+    .type-preview {
+      font-size: 32px;
+    }
+
+    /* Wordmark */
+    .wordmark {
+      font-size: 72px;
+      font-weight: 900;
+      letter-spacing: 8px;
+      text-align: center;
+      padding: 60px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .wordmark-gradient {
+      background: linear-gradient(135deg, #8B5CF6, #EC4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .wordmark-white {
+      color: #fff;
+    }
+
+    /* Download sizes */
+    .sizes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+
+    .size-item {
+      background: rgba(255,255,255,0.03);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .size-preview {
+      margin-bottom: 12px;
+    }
+
+    .size-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .instructions {
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 40px;
+    }
+
+    .instructions h3 {
+      color: #8B5CF6;
+      margin-bottom: 12px;
+    }
+
+    .instructions p {
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+
+    /* Splash Screen Preview */
+    .splash-preview {
+      width: 280px;
+      height: 560px;
+      background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+      border-radius: 40px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      border: 2px solid rgba(255,255,255,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .splash-preview::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(236, 72, 153, 0.2) 0%, transparent 50%);
+    }
+
+    .splash-logo {
+      font-size: 56px;
+      font-weight: 900;
+      letter-spacing: 6px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .splash-tagline {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 12px;
+      letter-spacing: 2px;
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <h1>GAMBIT</h1>
+  <p class="subtitle">Brand Assets & Guidelines</p>
+
+  <div class="section">
+    <div class="instructions">
+      <h3>How to Export Icons</h3>
+      <p>Right-click any icon below and select "Inspect Element", then right-click the element and choose "Capture Node Screenshot" (in Safari/Chrome DevTools). For best results, take a screenshot at 1024x1024 resolution for the App Store.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">App Icon Designs</h2>
+    <div class="icon-grid">
+      <div class="icon-container">
+        <div class="app-icon icon-v1">
+          <span class="icon-letter">G</span>
+        </div>
+        <p class="icon-label">V1 - Dark Premium (Recommended)</p>
+      </div>
+
+      <div class="icon-container">
+        <div class="app-icon icon-v2">
+          <span class="icon-letter">G</span>
+        </div>
+        <p class="icon-label">V2 - Gradient Bold</p>
+      </div>
+
+      <div class="icon-container">
+        <div class="app-icon icon-v3">
+          <span class="icon-letter">G</span>
+          <div class="dice-element">
+            <div class="dice-dot"></div>
+            <div class="dice-dot"></div>
+            <div class="dice-dot"></div>
+            <div class="dice-dot"></div>
+            <div class="dice-dot"></div>
+          </div>
+        </div>
+        <p class="icon-label">V3 - With Dice Element</p>
+      </div>
+
+      <div class="icon-container">
+        <div class="app-icon icon-v4">
+          <span class="icon-letter">G</span>
+        </div>
+        <p class="icon-label">V4 - Glass Premium</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Color Palette</h2>
+    <div class="color-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background: #8B5CF6;"></div>
+        <div class="color-info">
+          <p class="color-name">Primary Purple</p>
+          <p class="color-hex">#8B5CF6</p>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #7C3AED;"></div>
+        <div class="color-info">
+          <p class="color-name">Primary Dark</p>
+          <p class="color-hex">#7C3AED</p>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #EC4899;"></div>
+        <div class="color-info">
+          <p class="color-name">Accent Pink</p>
+          <p class="color-hex">#EC4899</p>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #3B82F6;"></div>
+        <div class="color-info">
+          <p class="color-name">Info Blue</p>
+          <p class="color-hex">#3B82F6</p>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #10B981;"></div>
+        <div class="color-info">
+          <p class="color-name">Success Green</p>
+          <p class="color-hex">#10B981</p>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #F59E0B;"></div>
+        <div class="color-info">
+          <p class="color-name">Warning Orange</p>
+          <p class="color-hex">#F59E0B</p>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #EF4444;"></div>
+        <div class="color-info">
+          <p class="color-name">Error Red</p>
+          <p class="color-hex">#EF4444</p>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #050505;"></div>
+        <div class="color-info">
+          <p class="color-name">Background</p>
+          <p class="color-hex">#050505</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Typography - Inter</h2>
+    <div class="type-sample">
+      <p class="type-weight">Black (900)</p>
+      <p class="type-preview" style="font-weight: 900;">GAMBIT - Party Chaos</p>
+    </div>
+    <div class="type-sample">
+      <p class="type-weight">Bold (700)</p>
+      <p class="type-preview" style="font-weight: 700;">The ultimate party game</p>
+    </div>
+    <div class="type-sample">
+      <p class="type-weight">Semi-Bold (600)</p>
+      <p class="type-preview" style="font-weight: 600;">150+ curated prompts</p>
+    </div>
+    <div class="type-sample">
+      <p class="type-weight">Medium (500)</p>
+      <p class="type-preview" style="font-weight: 500;">Swipe to continue</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Wordmark</h2>
+    <div class="wordmark">
+      <span class="wordmark-gradient">GAMBIT</span>
+    </div>
+    <div style="height: 20px;"></div>
+    <div class="wordmark" style="background: #8B5CF6;">
+      <span class="wordmark-white">GAMBIT</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Splash Screen Preview</h2>
+    <div style="display: flex; justify-content: center;">
+      <div class="splash-preview">
+        <span class="splash-logo wordmark-gradient">GAMBIT</span>
+        <p class="splash-tagline">Party chaos, perfected</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Required Sizes</h2>
+    <div class="sizes-grid">
+      <div class="size-item">
+        <div class="size-preview" style="font-size: 24px;">📱</div>
+        <p class="color-name">App Store</p>
+        <p class="size-label">1024 x 1024</p>
+      </div>
+      <div class="size-item">
+        <div class="size-preview" style="font-size: 24px;">🤖</div>
+        <p class="color-name">Play Store</p>
+        <p class="size-label">512 x 512</p>
+      </div>
+      <div class="size-item">
+        <div class="size-preview" style="font-size: 24px;">🌐</div>
+        <p class="color-name">Favicon</p>
+        <p class="size-label">32 x 32</p>
+      </div>
+      <div class="size-item">
+        <div class="size-preview" style="font-size: 24px;">📷</div>
+        <p class="color-name">OG Image</p>
+        <p class="size-label">1200 x 630</p>
+      </div>
+      <div class="size-item">
+        <div class="size-preview" style="font-size: 24px;">🚀</div>
+        <p class="color-name">Splash</p>
+        <p class="size-label">1284 x 2778</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="text-align: center; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1);">
+    <p style="color: rgba(255,255,255,0.4);">Gambit Brand Guidelines v1.0</p>
+    <p style="color: rgba(255,255,255,0.3); font-size: 14px; margin-top: 8px;">playgambit.app</p>
+  </div>
+</body>
+</html>
