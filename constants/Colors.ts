@@ -1,22 +1,22 @@
 /**
- * Gambit Brand Colors
- * Primary: Purple (#8B5CF6)
- * Accent: Pink (#EC4899)
+ * Most Likely To Brand Colors
+ * Primary: Amber/Orange (#F59E0B)
+ * Accent: Orange (#F97316)
  * Background: Near Black (#050505)
  */
 
 // Brand Colors
 export const Brand = {
-  primary: "#8B5CF6",
-  primaryDark: "#7C3AED",
-  primaryLight: "#A78BFA",
-  accent: "#EC4899",
-  accentDark: "#DB2777",
+  primary: "#F59E0B",
+  primaryDark: "#D97706",
+  primaryLight: "#FCD34D",
+  accent: "#F97316",
+  accentDark: "#EA580C",
 
   // Gradients (as arrays for LinearGradient)
-  gradientPrimary: ["#8B5CF6", "#7C3AED"] as const,
-  gradientAccent: ["#EC4899", "#DB2777"] as const,
-  gradientMixed: ["#8B5CF6", "#EC4899"] as const,
+  gradientPrimary: ["#F59E0B", "#D97706"] as const,
+  gradientAccent: ["#F97316", "#EA580C"] as const,
+  gradientMixed: ["#F59E0B", "#F97316"] as const,
 
   // Category Colors
   drinking: "#F59E0B",
@@ -26,7 +26,7 @@ export const Brand = {
   physical: "#10B981",
   social: "#3B82F6",
   creative: "#EC4899",
-  chaos: "#8B5CF6",
+  chaos: "#F59E0B",
 
   // Semantic Colors
   success: "#10B981",
@@ -48,7 +48,7 @@ export const Brand = {
   // Borders
   border: "rgba(255, 255, 255, 0.1)",
   borderLight: "rgba(255, 255, 255, 0.06)",
-  borderPrimary: "rgba(139, 92, 246, 0.3)",
+  borderPrimary: "rgba(245, 158, 11, 0.3)",
 };
 
 // Legacy Colors export for compatibility
@@ -117,7 +117,7 @@ export const Categories = {
     name: "Chaos",
     emoji: "🌪️",
     color: Brand.chaos,
-    gradient: ["#8B5CF6", "#7C3AED"] as const,
+    gradient: ["#F59E0B", "#D97706"] as const,
   },
 } as const;
 

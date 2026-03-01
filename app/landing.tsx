@@ -174,7 +174,7 @@ export default function Landing() {
         {/* Nav */}
         <Animated.View entering={FadeIn.duration(800)} style={styles.nav}>
           <Pressable onPress={() => router.push("/")} style={styles.navLogoWrap}>
-            <Text style={styles.navLogo}>GAMBIT</Text>
+            <Text style={styles.navLogo}>MOST LIKELY TO</Text>
           </Pressable>
           <View style={styles.navLinks}>
             <Pressable onPress={() => router.push("/privacy")} style={styles.navLink}>
@@ -462,7 +462,7 @@ export default function Landing() {
             <Text style={styles.ctaEmoji}>🎉</Text>
             <Text style={styles.ctaTitle}>Ready to Party?</Text>
             <Text style={styles.ctaSubtitle}>
-              Download Gambit and make your next gathering legendary.
+              Point fingers. Make accusations. Play Most Likely To free at mostlikelyto.ninetynine.digital
             </Text>
 
             <View style={styles.ctaButtons}>
@@ -495,7 +495,7 @@ export default function Landing() {
         <View style={styles.footer}>
           <View style={styles.footerTop}>
             <View style={styles.footerBrand}>
-              <Text style={styles.footerLogo}>GAMBIT</Text>
+              <Text style={styles.footerLogo}>MOST LIKELY TO</Text>
               <Text style={styles.footerTagline}>Party chaos, perfected.</Text>
             </View>
 

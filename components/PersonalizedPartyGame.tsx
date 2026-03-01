@@ -66,10 +66,10 @@ import { useReducedMotionWeb } from "../hooks/useReducedMotion";
 
 // Storage keys
 const STORAGE_KEYS = {
-  SKIPPED_PROMPTS: "gambit_skipped_prompts",
-  FAVORITE_PROMPTS: "gambit_favorite_prompts",
-  CUSTOM_PROMPTS: "gambit_custom_prompts",
-  ADULT_MODE: "gambit_adult_mode",
+  SKIPPED_PROMPTS: "mlt_skipped_prompts",
+  FAVORITE_PROMPTS: "mlt_favorite_prompts",
+  CUSTOM_PROMPTS: "mlt_custom_prompts",
+  ADULT_MODE: "mlt_adult_mode",
 };
 
 // Types
@@ -718,7 +718,7 @@ export function PersonalizedPartyGame() {
     const winner = sortedPlayers[0];
     const drunkest = [...players].sort((a, b) => b.drinks - a.drinks)[0];
 
-    let message = `🎮 GAMBIT RESULTS 🎮\n\n`;
+    let message = `🫵 MOST LIKELY TO RESULTS 🎮\n\n`;
 
     if (winner && winner.score > 0) {
       message += `👑 Champion: ${winner.name} (${winner.score} pts)\n`;
@@ -777,7 +777,7 @@ export function PersonalizedPartyGame() {
     if (!topCard) return;
     try {
       await Share.share({
-        message: `🎮 GAMBIT\n\n"${topCard.text}"\n\nDownload Gambit and play with your friends!`,
+        message: `🫵 MOST LIKELY TO\n\n"${topCard.text}"\n\nPlay Most Likely To at mostlikelyto.ninetynine.digital`,
       });
     } catch (e) {}
   }, [cardStack]);
