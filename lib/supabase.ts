@@ -1,7 +1,14 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient, SupabaseClient } from "@supabase/supabase-js";
 import Constants from "expo-constants";
 
-const supabaseUrl = Constants.expoConfig?.extra?.supabaseUrl ?? "";
-const supabaseAnonKey = Constants.expoConfig?.extra?.supabaseAnonKey ?? "";
+const supabaseUrl =
+  process.env.EXPO_PUBLIC_SUPABASE_URL ??
+  Constants.expoConfig?.extra?.supabaseUrl ??
+  "";
+const supabaseAnonKey =
+  process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY ??
+  Constants.expoConfig?.extra?.supabaseAnonKey ??
+  "";
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+export const supabase: SupabaseClient = createClient(supabaseUrl, supabaseAnonKey);
+export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);

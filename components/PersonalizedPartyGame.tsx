@@ -811,7 +811,24 @@ export function PersonalizedPartyGame() {
           <Text style={styles.heroSub}>Vote on your friends</Text>
         </Animated.View>
 
-        
+        {/* Multiplayer Button */}
+        <Animated.View entering={FadeInUp.delay(80).duration(500)} style={{ marginBottom: 16 }}>
+          <TouchableOpacity
+            style={styles.startButton}
+            onPress={() => router.push("/multiplayer")}
+            activeOpacity={0.9}
+            accessibilityRole="button"
+            accessibilityLabel="Play Multiplayer"
+            accessibilityHint="Everyone votes on their own phone in real-time"
+          >
+            <LinearGradient colors={["#3B82F6", "#2563EB"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={styles.startButtonGradient}>
+              <Text style={{ fontSize: 20, marginRight: 8 }}>🫵</Text>
+              <Text style={styles.startButtonText}>Multiplayer</Text>
+              <Ionicons name="people" size={18} color="#FFF" style={{ marginLeft: 8 }} accessibilityElementsHidden={true} />
+            </LinearGradient>
+          </TouchableOpacity>
+        </Animated.View>
+
         <Animated.View entering={FadeInUp.delay(100).duration(500)} style={styles.card}>
           <TouchableOpacity
             style={styles.cardTouchable}

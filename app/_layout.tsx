@@ -12,6 +12,7 @@ export default function RootLayout() {
         }}
       >
         <Stack.Screen name="index" />
+        <Stack.Screen name="multiplayer" />
         <Stack.Screen name="landing" />
         <Stack.Screen name="privacy" />
         <Stack.Screen name="support" />
